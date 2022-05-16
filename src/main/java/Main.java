@@ -1,12 +1,9 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args)
     {
         double wallSize, excludeSize, bucketSize, bucketCoverage, nBuckets, coats;
         Scanner input = new Scanner(System.in);
-        List<String> wallsOutput = new ArrayList<String>();
 
         int nWalls = 0;
         while(nWalls == 0)
@@ -18,6 +15,8 @@ public class Main {
                 System.out.println("Are you sure there aren't any walls?");
             }
         }
+        String[] wallsOutput = new String[nWalls];
+
         for (int i = 0; i < nWalls; i++)
         {
             System.out.println("Wall "+(i+1)+":\nWhat is the length of the wall? (in meters)");
@@ -47,7 +46,7 @@ public class Main {
             coats = input.nextDouble();
 
             nBuckets = ((wallSize - excludeSize)*coats / bucketCoverage) / bucketSize;
-            wallsOutput.add("The area to cover for wall "+(i+1)+" is "+(wallSize-excludeSize)+"m^2 and you will need " + nBuckets + " bucket(s) to apply "+coats+" coat(s) to the wall.");
+            wallsOutput[i] = ("The area to cover for wall "+(i+1)+" is "+(wallSize-excludeSize)+"m^2 and you will need " + nBuckets + " bucket(s) to apply "+coats+" coat(s) to the wall.");
         }
 
         for (String item : wallsOutput)
