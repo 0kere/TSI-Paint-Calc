@@ -19,7 +19,7 @@ public class Main {
 
         for (int i = 0; i < nWalls; i++)
         {
-            System.out.println("Wall "+(i+1)+":\nWhat is the length of the wall? (in meters)");
+            System.out.println("Wall "+(i+1)+":\nWhat is the height of the wall? (in meters)");
             wallSize = input.nextDouble(); //store length
             System.out.println("What is the width of the wall? (in meters)");
             wallSize *= input.nextDouble(); //times length by width for area
@@ -31,14 +31,14 @@ public class Main {
             {
                 System.out.println("Area "+(j+1)+":");
                 double thisArea;
-                System.out.println("What is the length of the area that you would like to exclude? (in meters)");
+                System.out.println("What is the height of the area that you would like to exclude? (in meters)");
                 thisArea = input.nextDouble();
                 System.out.println("What is the width of the area that you would like to exclude? (in meters)");
                 thisArea *= input.nextDouble();
                 excludeSize += thisArea;
             }
 
-            System.out.println("What is the coverage of the paint in m^2 per litre that you are using?");
+            System.out.println("What is the coverage of the paint in m\u00b2 per litre that you are using?"); //\u00b2 = ^2
             bucketCoverage = input.nextDouble();
             System.out.println("How many litres can your buckets hold?");
             bucketSize = input.nextDouble();
@@ -46,7 +46,7 @@ public class Main {
             coats = input.nextDouble();
 
             nBuckets = ((wallSize - excludeSize)*coats / bucketCoverage) / bucketSize;
-            wallsOutput[i] = ("The area to cover for wall "+(i+1)+" is "+(wallSize-excludeSize)+"m^2 and you will need " + nBuckets + " bucket(s) to apply "+coats+" coat(s) to the wall.");
+            wallsOutput[i] = "The area to cover for wall "+(i+1)+" is "+(wallSize-excludeSize)+"m\u00b2 and you will need " + nBuckets + " bucket(s) to apply "+coats+" coat(s) to the wall.";//\u00b2 = ^2
         }
 
         for (String item : wallsOutput)
